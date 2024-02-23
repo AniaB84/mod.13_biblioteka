@@ -50,8 +50,8 @@ def create_todo():
     todo = {
         'id': len(todos.all()) + 1,
         'title': request.json['title'],
-        'description': request.json.get('description', ""),
-        'done': False
+        'author': request.json.get('author', ""),
+        'read': False
     }
     todos.create(todo)
     return jsonify({'todo': todo}), 201
@@ -75,14 +75,14 @@ def update_todo(todo_id):
     data = request.json
     if any([
         'title' in data and not isinstance(data.get('title'), str),
-        'description' in data and not isinstance(data.get('description'), str),
-        'done' in data and not isinstance(data.get('done'), bool)
+        'author' in data and not isinstance(data.get('author'), str),
+        'read' in data and not isinstance(data.get('read'), bool)
     ]):
         abort(400)
     todo = {
         'title': data.get('title', todo['title']),
-        'description': data.get('description', todo['description']),
-        'done': data.get('done', todo['done'])
+        'author': data.get('author', todo['author']),
+        'read': data.get('read', todo['read'])
     }
     todos.update(todo_id, todo)
     return jsonify({'todo': todo})
