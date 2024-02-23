@@ -1,0 +1,3 @@
+[{"title": "Media", "description": "Prad, gaz, woda, smieci", "id": 0, "done": false}, 
+{"title": "Tekstylia", "description": "Spodnie, bluza, koszulka", "done": true, "id": 1, "csrf_token": "ImU3NTMyMzI5YmVhNmYxMzcxYmQxMzliNWVmMzJmMzJlOGEyOTgxNTMi.ZXRS8A.DfHy6MREdyyZkSeOdbcDBRaOcU8"}, {"title": "Prezenty", "description": "Lego, kosmetyki, s\u0142odycze", "done": true, "id": 2, "csrf_token": "ImU3NTMyMzI5YmVhNmYxMzcxYmQxMzliNWVmMzJmMzJlOGEyOTgxNTMi.ZXRTKg.m2CxNSaoAdLyhMfp_B4nXQIp9po"}, 
+{"title": "Apteka", "description": "Tran, Mg", "done": true, "id": 3, "csrf_token": "ImU3NTMyMzI5YmVhNmYxMzcxYmQxMzliNWVmMzJmMzJlOGEyOTgxNTMi.ZXRcHg.nF4T5T0TclXlNXIsy6FJLyYSRCA"}]

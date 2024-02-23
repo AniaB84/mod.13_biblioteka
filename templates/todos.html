@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Wydatki</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        table, th, tr, td {border: 1px solid rgba(0, 0, 255, 0.409);}
+    </style>
+</head>
+<body style=background-color:rgba(255,255,0,0.296)>
+
+<h2 style=font-size:45px;color:rgba(0,128,0,0.751);>Wydatki domowe</h2>
+<div><img src="https://cdn.pixabay.com/photo/2017/08/30/07/56/money-2696229_1280.jpg" alt="Pieniądze" width="1400" height="300"></div>
+<table>
+    <thead>
+    <th>Tytuł</th>
+    <th>Opis</th>
+    <th>Czy zrobione?</th>
+    <th>Id</th>
+    </thead>
+{% for todo in todos %}
+    <tr>
+        <td><a href="/todos/{{ loop.index }}">{{ todo.title }}</a></td>
+        <td>{{ todo.description }}</td>
+        <td>{{ todo.done }}</td>
+        <td>{{ todo.id }}</td>
+    </tr>
+{% endfor %}
+</table>
+<div>
+    <h2 style=font-size:45px;color:rgba(0,128,0,0.751);> Dodaj nowe wydatki: </h2>
+    <form method="POST" action="/todos/">
+       {{ form.hidden_tag() }}
+        <table>
+            {% for field in form if field.widget.input_type != 'hidden' %}
+                <tr>
+                    <th>{{ field.label }} {% if field.flags.required %}*{% endif %}</th>
+                    <td>{{ field }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <input type="submit" value="Go">
+    </form>
+</div>
+</body>
+</html>
