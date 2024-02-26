@@ -2,6 +2,8 @@ from flask import Flask, jsonify, abort, make_response, request, render_template
 
 from forms import TodoForm
 from models import todos
+import sqlalchemy
+sqlalchemy.__version__
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "nininini"

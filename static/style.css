@@ -1,3 +1,10 @@
 .first {
     size:45px; color:rgba(16, 216, 16, 0.768)
 }
+img {
+    margin-left: 100px;
+    border-radius: 30%;
+    }
+href {
+    color: "black";
+}    

@@ -8,3 +8,4 @@ class TodoForm(FlaskForm):
     author = TextAreaField('author', validators=[DataRequired()])
     read = BooleanField('read', validators=[DataRequired()])
     id = IntegerField('id', validators=[DataRequired()])
+   
