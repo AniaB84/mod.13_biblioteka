@@ -4,10 +4,10 @@ class Book:
     def __init__(self, title, author):
         self.title = title
         self.author = author
-        self.dostepna = True
+        self.available = True
 
      
-def borrowed(self):
+    def borrowed(self):
         
       if self.available:
             self.available = False
@@ -16,7 +16,7 @@ def borrowed(self):
             print(f"Książka '{self.title}' jest dostepna.")
 
     
-def donated(self):
+    def returned(self):
         self.available = True
         print(f"Książka '{self.title}' została zwrócona.")
 
@@ -26,25 +26,25 @@ class Library:
         self.books = []
 
  
-def add_book(self, book):
+    def add_book(self, book):
         self.book.append(book)
         print(f"Książka '{book.title}' została dodana do biblioteki.")
 
     
 
-def borrowed_book(self, title):
+    def borrowed_book(self, title):
         for book in self.book:
             if book.tytul == title:
-                book.donated()
+                book.returned()
                 return
             print("Przepraszamy, nie ma takiej książki w bibliotece.")
 
     
-def donated_book(self, title):
+    def returned_book(self, title):
         for book in self.book:
             if book.title == title:
                return
         print("Przepraszamy, nie ma takiej książki w bibliotece.")
 
-todos = Book()
+todos = Book() 
 todos = Library()
