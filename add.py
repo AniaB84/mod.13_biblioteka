@@ -31,42 +31,57 @@ def add_library(conn, library):
 
 def add_borrowed(conn, borrowed):
    """
-   Create a new task into the borrowed table
+   Create a new borrowed into the borrowed table
    :param conn:
    :param borrowed:
    :return: borrowed id
    """
-   sql = '''INSERT INTO borrowed(library_id, tytuł, autor, date)
-             VALUES(?,?,?,?)'''
+   sql = '''INSERT INTO borrowed(library_id, tytuł, autor)
+             VALUES(?,?,?)'''
    cur = conn.cursor()
    cur.execute(sql, borrowed)
    conn.commit()
    return cur.lastrowid
 
+
+def add_returned(conn, returned):
+   """
+   Create a new returned into the returned table
+   :param conn:
+   :param returned:
+   :return: returned id
+   """
+   sql = '''INSERT INTO returned(library_id, tytuł, autor)
+             VALUES(?,?,?)'''
+   cur = conn.cursor()
+   cur.execute(sql, returned)
+   conn.commit()
+   return cur.lastrowid
+
+
+
 if __name__ == "__main__":
-  
+   
    conn = create_connection("database.db")
 
-   # Insert data from library.json into the database
-   with open('todos.json', 'r') as file:
-       reader = json.reader(file)
-       next(reader)  # Skip header
-       for row in reader:
-           library = (row[0], row[1])
-           library_id = add_library(conn, library)       
-           ly_id = add_library(conn, library)
-  
-   # Insert data from borrowed into the database
-   with open('todos.json', 'r') as file:
-       reader = json.reader(file)
-       next(reader)  # Skip header
-       for row in reader:
-           borrowed = (library_id, row[0], row[1], row[2])
-           borrowed_id = add_borrowed(conn, borrowed)
-   
+  # Insert data from library.json into the database
+   with open('library.json', 'r') as file:
+        data = json.load(file)
+        for item in data:
+            library_id = add_library(conn, (item['title'], item['author']))
+        
+    
+        with open('library.json', 'r') as file:
+           data = json.load(file)
+           for item in data:
+               borrowed_id = add_borrowed(conn, (library_id, item['title'], item['author']))
+            
 
-   br_id = add_borrowed(conn, borrowed)
 
-   print(ly_id, br_id)
-   conn.commit()
+        with open('library.json', 'r') as file:
+            data = json.load(file)
+            for item in data:
+                returned_id = add_returned(conn, (library_id, item['title'], item['author']))
+
+conn.commit()
    

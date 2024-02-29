@@ -46,7 +46,6 @@ if __name__ == "__main__":
       library_id integer NOT NULL,
       tytuł text,
       autor text,
-      date text NOT NULL,
       FOREIGN KEY (library_id) REFERENCES library (id)
    );
    """
@@ -58,7 +57,6 @@ if __name__ == "__main__":
       library_id integer NOT NULL,
       tytuł text,
       autor text,
-      date text NOT NULL,
       FOREIGN KEY (library_id) REFERENCES library (id)
    );
    """

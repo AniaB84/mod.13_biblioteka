@@ -51,5 +51,5 @@ def delete_all(conn, table):
 
 if __name__ == "__main__":
    conn = create_connection("database.db")
-   delete_where(conn, "library", id=1)
-   delete_all(conn, "borrowed")
+   delete_where(conn, "borrowed", id=1)
+   delete_all(conn, "library")
