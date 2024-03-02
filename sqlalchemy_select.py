@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, MetaData, Integer, String, Table, Column
 
-engine = create_engine('sqlite:///database.db', echo=True)
+engine = create_engine('sqlite:///mikroblog.db', echo=True)
 
 meta = MetaData()
 

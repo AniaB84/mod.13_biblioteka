@@ -1,7 +1,7 @@
 from sqlalchemy import Table, Column, Integer, String, MetaData
 from sqlalchemy import create_engine
 
-engine = create_engine('sqlite:///database.db', echo=True)
+engine = create_engine('sqlite:///mokroblog.db', echo=True)
 
 meta = MetaData()
 
